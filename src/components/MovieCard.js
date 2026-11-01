@@ -1,11 +1,23 @@
 import React from "react";
 import { IMG_CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { setSelectedMovie } from "../utils/movieSlice";
 
 const MovieCard = ({ movie }) => {
   const rating = movie.vote_average ? movie.vote_average.toFixed(1) : null;
   const year = movie.release_date?.slice(0, 4);
+  const dispatch = useDispatch();
+  const getMovieId = () => {
+    // Hero switches to this movie; VideoBackground's useVideoKey then fetches its trailer
+    dispatch(setSelectedMovie(movie));
+    window.scrollTo({ top: 0, behavior: "smooth" }); // scroll back up to the trailer
+  };
+
   return (
-    <div className="group relative aspect-[2/3] w-32 flex-shrink-0 cursor-pointer overflow-hidden rounded-md bg-zinc-800 transition-transform duration-300 hover:z-10 hover:scale-105 md:w-44">
+    <div
+      onClick={getMovieId}
+      className="group relative aspect-[2/3] w-32 flex-shrink-0 cursor-pointer overflow-hidden rounded-md bg-zinc-800 transition-transform duration-300 hover:z-10 hover:scale-105 md:w-44"
+    >
       {movie.poster_path ? (
         <img
           src={`${IMG_CDN_URL}w342${movie.poster_path}`}
