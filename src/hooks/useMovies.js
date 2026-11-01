@@ -1,7 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getNowPlayingMovies, getVideoKey } from "../services/movieService";
-import { setNowPlayingMovies, setVideoKey } from "../utils/movieSlice";
+import {
+  getNowPlayingMovies,
+  getPopularMovies,
+  getVideoKey,
+} from "../services/movieService";
+import {
+  setNowPlayingMovies,
+  setPopularMovies,
+  setVideoKey,
+} from "../utils/movieSlice";
 
 export const useMovies = () => {
   const dispatch = useDispatch();
@@ -9,6 +17,17 @@ export const useMovies = () => {
     getNowPlayingMovies().then((movies) => {
       dispatch(setNowPlayingMovies(movies));
     });
+  }, [dispatch]);
+};
+
+export const usePopularMovies = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchPopularMovies = async () => {
+      const popularMovies = await getPopularMovies();
+      dispatch(setPopularMovies(popularMovies));
+    };
+    fetchPopularMovies();
   }, [dispatch]);
 };
 

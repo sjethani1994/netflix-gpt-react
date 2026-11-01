@@ -1,6 +1,6 @@
 const VideoTitle = ({ original_title, overview }) => {
   return (
-    <div className="pointer-events-none absolute inset-0 z-[1] flex flex-col justify-center bg-gradient-to-r from-black via-black/60 to-transparent px-6 pt-96 text-white md:px-16">
+    <div className="pointer-events-none absolute inset-0 z-[1] flex flex-col justify-center bg-gradient-to-r from-black via-black/60 to-transparent px-6 pb-24 pt-16 text-white md:px-16 md:pb-56">
       <h1 className="max-w-xl text-3xl font-extrabold drop-shadow-lg md:text-6xl">
         {original_title}
       </h1>

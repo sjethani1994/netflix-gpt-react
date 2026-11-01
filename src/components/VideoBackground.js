@@ -40,14 +40,14 @@ const VideoBackground = ({ movies }) => {
         )
       )}
       {/* Fade into the page below */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent" />
 
       {videoKey && (
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute" : "Mute"}
           // z-10 keeps it clickable above the VideoTitle overlay
-          className="absolute bottom-6 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/70 text-white transition hover:bg-white/10 md:bottom-10 md:right-16"
+          className="absolute bottom-16 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/70 text-white transition hover:bg-white/10 md:bottom-40 md:right-16"
         >
           <svg
             viewBox="0 0 24 24"

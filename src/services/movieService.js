@@ -9,6 +9,15 @@ export const getNowPlayingMovies = async () => {
   return data.results;
 };
 
+export const getPopularMovies = async () => {
+  const response = await fetch(
+    "https://api.themoviedb.org/3/movie/popular?page=1",
+    options,
+  );
+  const data = await response.json();
+  return data.results;
+};
+
 export const getVideoKey = async (movieId) => {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/videos`,

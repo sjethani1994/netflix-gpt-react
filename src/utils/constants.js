@@ -15,3 +15,6 @@ export const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDFiNmEzZjBmOWJiZTIxZGYxNGIwMjdlOWI1OWQzYSIsIm5iZiI6MTc5MzUwOTg1MS45OTcsInN1YiI6IjZhZTZjOWRiZGJhZGE4MWNmYmYxYThiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JkA9t1YBJiVSWZnCfFGdgmkeDRb7t_8hEi-p8f1o3Nc",
   },
 };
+
+// TMDB image base; append a size (w342, w500, original) and the image path
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/";
