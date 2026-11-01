@@ -1,21 +1,32 @@
-import Browse from "./Browse";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./Login";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
+import { subscribeToAuthChanges } from "../services/authService";
+import { addUser, removeUser } from "../utils/userSlice";
+import Header from "./Header";
 
+// Layout route: listens for auth changes and renders the matched child page
 const Body = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-  ]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = subscribeToAuthChanges((user) => {
+      if (user) {
+        dispatch(addUser(user));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return unsubscribe;
+  }, [dispatch, navigate]);
+
   return (
     <div>
-      <RouterProvider router={appRouter} />
+      <Header />
+      <Outlet />
     </div>
   );
 };
