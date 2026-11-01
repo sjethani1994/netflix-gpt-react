@@ -18,3 +18,9 @@ export const options = {
 
 // TMDB image base; append a size (w342, w500, original) and the image path
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/";
+
+export const supportedLanguages = [
+  { code: "en", name: "English" },
+  { code: "es", name: "Spanish" },
+  { code: "hi", name: "Hindi" },
+];
