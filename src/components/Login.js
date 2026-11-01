@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-import Header from "./Header";
 import checkValidData from "../utils/CheckValidData";
 import { getAuthErrorMessage } from "../utils/authErrors";
 import { signIn, signUp } from "../services/authService";
 import { addUser } from "../utils/userSlice";
+import { backgroundImage } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const Login = () => {
       <div className="absolute inset-0">
         <img
           className="h-full w-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/29195c81-5ebb-453e-82e9-d3a50737dfb3/web/IN-en-20261026-TRIFECTA-perspective_ef561213-292c-4768-aef0-c1db800e385e_large.jpg"
+          src={backgroundImage}
           alt="background"
         />
         <div className="absolute inset-0 bg-black/50" />
