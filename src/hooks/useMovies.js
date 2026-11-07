@@ -4,10 +4,12 @@ import {
   getNowPlayingMovies,
   getPopularMovies,
   getVideoKey,
+  searchMovies,
 } from "../services/movieService";
 import {
   setNowPlayingMovies,
   setPopularMovies,
+  setSearchResults,
   setVideoKey,
 } from "../utils/movieSlice";
 

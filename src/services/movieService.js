@@ -28,3 +28,12 @@ export const getVideoKey = async (movieId) => {
   // Prefer a trailer; fall back to any YouTube video (teaser, clip)
   return (videos.find((video) => video.type === "Trailer") || videos[0])?.key;
 };
+
+export const searchMovies = async (query) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}`,
+    options,
+  );
+  const data = await response.json();
+  return data.results;
+};

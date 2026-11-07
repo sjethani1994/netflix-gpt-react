@@ -24,3 +24,6 @@ export const supportedLanguages = [
   { code: "es", name: "Spanish" },
   { code: "hi", name: "Hindi" },
 ];
+
+// Groq API key (free tier). Set REACT_APP_GROQ_API_KEY in .env.local, which git ignores.
+export const groqApiKey = process.env.REACT_APP_GROQ_API_KEY;

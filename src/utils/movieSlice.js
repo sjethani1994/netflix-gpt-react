@@ -8,6 +8,8 @@ const movieSlice = createSlice({
     videoKeys: {},
     // Movie shown in the hero; null means the first now-playing movie
     selectedMovie: null,
+    // True while a GPT search is running; read by the search bar and the suggestions
+    isSearching: false,
   },
   reducers: {
     setNowPlayingMovies: (state, action) => {
@@ -23,6 +25,12 @@ const movieSlice = createSlice({
     setSelectedMovie: (state, action) => {
       state.selectedMovie = action.payload;
     },
+    setSearchResults: (state, action) => {
+      state.searchResults = action.payload;
+    },
+    setIsSearching: (state, action) => {
+      state.isSearching = action.payload;
+    },
   },
 });
 
@@ -31,5 +39,7 @@ export const {
   setVideoKey,
   setPopularMovies,
   setSelectedMovie,
+  setSearchResults,
+  setIsSearching,
 } = movieSlice.actions;
 export default movieSlice.reducer;
