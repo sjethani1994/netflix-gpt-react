@@ -16,8 +16,8 @@ const MovieList = ({ title, movies }) => {
   };
 
   return (
-    <div className="mb-8">
-      <h2 className="mb-2 px-6 text-lg font-bold text-white md:px-16 md:text-2xl">
+    <div className="mb-4 sm:mb-8">
+      <h2 className="mb-1 px-4 text-base font-bold text-white sm:mb-2 sm:px-6 sm:text-lg md:px-16 md:text-2xl">
         {title}
       </h2>
 
@@ -46,7 +46,7 @@ const MovieList = ({ title, movies }) => {
         {/* py-4 leaves room for cards to grow on hover without being clipped */}
         <div
           ref={rowRef}
-          className="no-scrollbar flex gap-2 overflow-x-auto scroll-smooth px-6 py-4 md:px-16"
+          className="no-scrollbar flex gap-2 overflow-x-auto scroll-smooth px-4 py-3 sm:px-6 sm:py-4 md:px-16"
         >
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />

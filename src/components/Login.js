@@ -63,13 +63,13 @@ const Login = () => {
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-24 pb-8">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-20 pb-8 sm:pt-24">
         <form
           noValidate
           onSubmit={(e) => handleSubmit(e)}
-          className="w-full max-w-md rounded-md bg-black/75 px-8 py-12 text-white sm:px-16"
+          className="w-full max-w-md rounded-md bg-black/75 px-6 py-10 text-white sm:px-16 sm:py-12"
         >
-          <h1 className="mb-7 text-3xl font-bold">
+          <h1 className="mb-6 text-2xl font-bold sm:mb-7 sm:text-3xl">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
 
@@ -102,7 +102,7 @@ const Login = () => {
             {loading ? "Please wait..." : isSignInForm ? "Sign In" : "Sign Up"}
           </button>
 
-          <p className="mt-8 text-gray-400">
+          <p className="mt-6 text-sm text-gray-400 sm:mt-8 sm:text-base">
             {isSignInForm ? "New to Netflix? " : "Already registered? "}
             <span
               className="cursor-pointer font-semibold text-white hover:underline"

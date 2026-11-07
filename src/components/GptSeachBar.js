@@ -112,21 +112,21 @@ Example: for "chennai express" reply ["Chennai Express", "Dilwale", "Happy New Y
     }
   };
   return (
-    <div className="flex justify-center px-4 pt-28 md:pt-[12vh]">
+    <div className="flex justify-center px-4 pt-20 sm:pt-28 md:pt-[12vh]">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="flex w-full max-w-3xl flex-col gap-3 rounded-xl border border-white/20 bg-zinc-700/60 p-4 shadow-2xl backdrop-blur-sm sm:flex-row sm:items-center md:p-6"
+        className="flex w-full max-w-3xl flex-col gap-3 rounded-xl border border-white/20 bg-zinc-700/60 p-3 sm:p-4 shadow-2xl backdrop-blur-sm sm:flex-row sm:items-center md:p-6"
       >
         <input
           type="text"
           ref={searchText}
           placeholder={language[selectedLanguage].getSearchPlaceholder}
-          className="w-full flex-1 rounded-md border border-gray-400/60 bg-zinc-800/80 px-5 py-3 text-base text-white placeholder-gray-500 transition focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-600/40 md:text-lg"
+          className="w-full flex-1 rounded-md border border-gray-400/60 bg-zinc-800/80 px-4 py-2.5 text-base sm:px-5 sm:py-3 text-white placeholder-gray-500 transition focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-600/40 md:text-lg"
         />
         <button
           onClick={handleGptSearchClick}
           disabled={loading}
-          className="rounded-md bg-red-600 px-8 py-3 text-base font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600/50 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 md:text-lg"
+          className="rounded-md bg-red-600 px-6 py-2.5 text-base font-semibold sm:px-8 sm:py-3 text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600/50 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 md:text-lg"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">

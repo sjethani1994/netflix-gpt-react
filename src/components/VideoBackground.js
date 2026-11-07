@@ -47,7 +47,7 @@ const VideoBackground = ({ movies }) => {
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute" : "Mute"}
           // z-10 keeps it clickable above the VideoTitle overlay
-          className="absolute bottom-16 right-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/70 text-white transition hover:bg-white/10 md:bottom-40 md:right-16"
+          className="absolute bottom-16 right-4 z-10 flex h-9 w-9 sm:right-6 sm:h-11 sm:w-11 items-center justify-center rounded-full border-2 border-white/70 text-white transition hover:bg-white/10 md:bottom-40 md:right-16"
         >
           <svg
             viewBox="0 0 24 24"

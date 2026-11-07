@@ -28,14 +28,15 @@ const Header = () => {
     dispatch(toggleGPTSearch());
   };
   return (
-    <div className="absolute top-0 left-0 z-10 flex w-full items-center justify-between bg-gradient-to-b from-black px-8 py-4">
-      <img className="w-44" src={logo} alt="logo" />
+    // Smaller padding, logo and controls on phones so everything fits on one line
+    <div className="absolute top-0 left-0 z-10 flex w-full items-center justify-between gap-2 bg-gradient-to-b from-black px-4 py-3 md:px-8 md:py-4">
+      <img className="w-24 flex-shrink-0 sm:w-32 md:w-44" src={logo} alt="logo" />
 
       {user && (
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <button
             onClick={handleGptSearchClick}
-            className="rounded bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700"
+            className="whitespace-nowrap rounded bg-red-600 px-2.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-red-700 md:px-4 md:py-2 md:text-sm"
           >
             {isGPTSearchOpen ? "Home" : "GPT Search"}
           </button>
@@ -43,7 +44,7 @@ const Header = () => {
           {isGPTSearchOpen && (
             <div className="relative inline-block">
               <select
-                className="appearance-none cursor-pointer rounded border border-gray-500 bg-black/80 px-3 py-2 pr-9 text-sm font-medium text-white transition hover:border-white focus:border-red-600 focus:outline-none"
+                className="appearance-none cursor-pointer rounded border border-gray-500 bg-black/80 py-1.5 pl-2 pr-7 text-xs font-medium text-white transition hover:border-white focus:border-red-600 focus:outline-none md:px-3 md:py-2 md:pr-9 md:text-sm"
                 value={user.language}
                 onChange={(e) =>
                   dispatch({
@@ -64,7 +65,7 @@ const Header = () => {
               </select>
 
               <svg
-                className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white"
+                className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white md:right-3 md:h-4 md:w-4"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -77,15 +78,29 @@ const Header = () => {
           )}
 
           <img
-            className="h-10 w-10 rounded"
+            className="hidden h-8 w-8 rounded sm:block md:h-10 md:w-10"
             src={user.photoURL || userDefaultPhoto}
             alt={user.displayName || "user"}
           />
           <button
             onClick={signOut}
-            className="rounded bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700"
+            aria-label="Sign Out"
+            className="flex items-center gap-1.5 rounded bg-red-600 px-2.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-red-700 md:px-4 md:py-2 md:text-sm"
           >
-            Sign Out
+            {/* Icon only on phones, text from sm up */}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 sm:hidden"
+              aria-hidden="true"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+            </svg>
+            <span className="hidden sm:inline">Sign Out</span>
           </button>
         </div>
       )}

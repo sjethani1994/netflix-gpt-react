@@ -16,7 +16,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       onClick={getMovieId}
-      className="group relative aspect-[2/3] w-32 flex-shrink-0 cursor-pointer overflow-hidden rounded-md bg-zinc-800 transition-transform duration-300 hover:z-10 hover:scale-105 md:w-44"
+      className="group relative aspect-[2/3] w-28 flex-shrink-0 cursor-pointer sm:w-32 overflow-hidden rounded-md bg-zinc-800 transition-transform duration-300 hover:z-10 hover:scale-105 md:w-44"
     >
       {movie.poster_path ? (
         <img
